@@ -157,11 +157,9 @@ class airplaneList {
             std::fstream inp;
             inp.open("airPlaneList.txt", std::ios::out);
             int n = this->countIndexPlane();
-
             inp << n << "\n";
             for (int i = 0; i <= n - 1; i++) {
                 std::string JSON = stringtifyJSON_Plane(this->data[i]->idPlane, this->data[i]->typePlane, this->data[i]->rowNumber, this->data[i]->colNumber);
-                inp << JSON << "\n";
                 inp << JSON << "\n";
             }
             inp.close();
