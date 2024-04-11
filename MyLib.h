@@ -94,4 +94,49 @@ namespace NS_MyLib {
     void toLowerCase(char& c) {
         if (c <= 'Z' && c >= 'A') c = ((int)c) + 32;
     }
+
+
+    // Phân giải 1 chuỗi thành dữ liệu
+    void parseJSON_Plane(std::string& idPlane, std::string& typePlane, int& rowNumber, int& colNumber, std::string JSON) {
+        std::string strRowNumber = "";
+        std::string strColNumber = "";
+        //int length = ((int)JSON.length());
+        int length = JSON.length();
+        int i = 0;
+        for (; i <= length - 1; i++) {
+            if (JSON[i] != '#') {
+                idPlane = idPlane + JSON[i];
+            }
+            else break;
+        }
+        i++;
+        for (; i <= length - 1; i++) {
+            if (JSON[i] != '#') {
+                typePlane = typePlane + JSON[i];
+            }
+            else break;
+        }
+        i++;
+        for (; i <= length - 1; i++) {
+            if (JSON[i] != '#') {
+                strRowNumber = strRowNumber + JSON[i];
+            }
+            else break;
+        }
+        i++;
+        for (; i <= length - 1; i++) {
+            if (JSON[i] != '#') {
+                strColNumber = strColNumber + JSON[i];
+            }
+            else break;
+        }
+        rowNumber = library::String_to_Number(strRowNumber);
+        colNumber = library::String_to_Number(strColNumber);
+    }
+    
+    std::string stringtifyJSON_Plane(std::string idPlane, std::string typePlane, int rowNumber, int colNumber) {
+        std::string strRowNumber = library::Number_to_String(rowNumber);
+        std::string strColNumber = library::Number_to_String(colNumber);
+        return idPlane + "#" + typePlane + "#" + strRowNumber + "#" + strColNumber;
+    }
 }
