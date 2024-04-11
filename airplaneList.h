@@ -1,5 +1,5 @@
 #pragma once
-#include "Library.h"
+#include "MyLib.h"
 #include "DefineConst.h"
 
 // Phân giải 1 chuỗi thành dữ liệu
