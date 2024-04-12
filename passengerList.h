@@ -9,7 +9,7 @@ enum Sex { male, female };
 // Giải mã JSON
 // lastName: Họ
 // firstName: Tên
-void parseJSON_Passenger(std::string &idCard, std::string &lastName, std::string &firstName, Sex &sex, std::string JSON) {
+void parseJSONPassenger(std::string &idCard, std::string &lastName, std::string &firstName, Sex &sex, std::string JSON) {
 	int length = (int) JSON.length();
 	int i = 0;
 	for (; i <= length - 1; i++) {
@@ -40,7 +40,7 @@ void parseJSON_Passenger(std::string &idCard, std::string &lastName, std::string
 }
 
 // Mã hóa JSON
-std::string Stringtify_Passenger(std::string idCard, std::string lastName, std::string firstName, Sex sex) {
+std::string stringtifyPassenger(std::string idCard, std::string lastName, std::string firstName, Sex sex) {
 	std::string Sx = sex == male ? "0" : "1";
 	return idCard + "#" + lastName + "#" + firstName + "#" + Sx;
 }
@@ -302,7 +302,7 @@ class Passenger_list {
 				lastName = "";
 				firstName = "";
 				std::getline(data, JSON);
-				parseJSON_Passenger(idCard, lastName, firstName, sex, JSON);
+				parseJSONPassenger(idCard, lastName, firstName, sex, JSON);
 				Passenger newPassenger(idCard, lastName, firstName, sex);
 				insertNode(newPassenger);
 			}

@@ -242,11 +242,10 @@ namespace NS_dateTime {
 		if (spaceTime <= 180) return true;
 		return false;
 	}
-    
+
 	bool inThirtyMinute(dateTime before, dateTime after) {
 		long long spaceTime = calSpaceTime(before, after);
 		if (spaceTime <= 30) return true;
 		return false;
 	}
-
 }
