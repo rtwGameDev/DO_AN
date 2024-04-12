@@ -85,7 +85,14 @@ struct nodeAVLPassenger {
 	nodeAVLPassenger(Passenger Info) {
 		this->info = info;
 	}
-
+	
+	// Delete
+	void deleteAll(nodeAVLPassenger *&root) {
+		if (root != nullptr) {
+			deleteAll(root->left);
+			deleteAll(root->right);
+		}
+	}
 	// Destructor
 	~nodeAVLPassenger() {};
 };
@@ -256,6 +263,7 @@ class Passenger_list {
 		}
 
 		// Show....
+		
 	public:
 		int getNumberOfPassenger() {
 			return this->numberOfPassenger;
@@ -307,4 +315,6 @@ class Passenger_list {
 				insertNode(newPassenger);
 			}
 		}
+		
+		
 };
