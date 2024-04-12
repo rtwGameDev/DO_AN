@@ -135,36 +135,36 @@ namespace NS_MyLib {
         return idPlane + "#" + typePlane + "#" + strRowNumber + "#" + strColNumber;
     }
 
-    void parseJSON_Passenger(string &SCMND, string &Ho, string &Ten, Phai &phai, string JSON) {
-        int i = 0, length = (int) JSON.length();
-        for (; i <= length - 1; ++i) {
-            if (JSON[i] != '#') {
-                SCMND = SCMND + JSON[i];
-            }
-            else break;
-        }
-        i = i + 1;
-        for (; i <= length - 1; ++i) {
-            if (JSON[i] != '#') {
-                Ho = Ho + JSON[i];
-            }
-            else break;
-        }
-        i = i + 1;
-        for (; i <= length - 1; ++i) {
-            if (JSON[i] != '#') {
-                Ten = Ten + JSON[i];
-            }
-            else break;
-        }
-        i = i + 1;
-        if (JSON[length - 1] == '0') phai = Nam;
-        else phai = Nu;
-    }
+    // void parseJSON_Passenger(string &SCMND, string &Ho, string &Ten, Phai &phai, string JSON) {
+    //     int i = 0, length = (int) JSON.length();
+    //     for (; i <= length - 1; ++i) {
+    //         if (JSON[i] != '#') {
+    //             SCMND = SCMND + JSON[i];
+    //         }
+    //         else break;
+    //     }
+    //     i = i + 1;
+    //     for (; i <= length - 1; ++i) {
+    //         if (JSON[i] != '#') {
+    //             Ho = Ho + JSON[i];
+    //         }
+    //         else break;
+    //     }
+    //     i = i + 1;
+    //     for (; i <= length - 1; ++i) {
+    //         if (JSON[i] != '#') {
+    //             Ten = Ten + JSON[i];
+    //         }
+    //         else break;
+    //     }
+    //     i = i + 1;
+    //     if (JSON[length - 1] == '0') phai = Nam;
+    //     else phai = Nu;
+    // }
 
-    // Ma hoa JSON
-    string Stringtify_Passenger(string SCMND, string Ho, string Ten, Phai phai) {
-        string gioitinh = phai == Nam ? "0" : "1";
-        return SCMND + "#" + Ho + "#" + Ten +  "#" + gioitinh;
-    }
+    // // Ma hoa JSON
+    // string Stringtify_Passenger(string SCMND, string Ho, string Ten, Phai phai) {
+    //     string gioitinh = phai == Nam ? "0" : "1";
+    //     return SCMND + "#" + Ho + "#" + Ten +  "#" + gioitinh;
+    // }
 }
