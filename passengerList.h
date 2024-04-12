@@ -86,13 +86,7 @@ struct nodeAVLPassenger {
 		this->info = info;
 	}
 	
-	// Delete
-	void deleteAll(nodeAVLPassenger *&root) {
-		if (root != nullptr) {
-			deleteAll(root->left);
-			deleteAll(root->right);
-		}
-	}
+	
 	// Destructor
 	~nodeAVLPassenger() {};
 };
@@ -316,5 +310,11 @@ class Passenger_list {
 			}
 		}
 		
-		
+		// Delete
+		void deleteAll(nodeAVLPassenger *&root) {
+			if (root != nullptr) {
+				deleteAll(root->left);
+				deleteAll(root->right);
+			}
+		}
 };
