@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 // Noi day chua cac ham doc lap voi cac thu vien
-namespace NS_MyLib {
+namespace NS_myLib {
     // tu so sang chuoi
     string Number_to_String(int number) {
         if (number == 0) return "0";

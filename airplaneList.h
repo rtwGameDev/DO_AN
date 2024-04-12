@@ -102,7 +102,7 @@ class airplaneList {
                 rowNumber = 0;
                 colNumber = 0;
                 std::getline(out, JSON);
-                parseJSON_Plane(idPlane, typePlane, rowNumber, colNumber, JSON);
+                NS_myLib::parseJSON_Plane(idPlane, typePlane, rowNumber, colNumber, JSON);
                 addPlane(idPlane, typePlane, rowNumber, colNumber);
             }
             out.close();
@@ -115,7 +115,7 @@ class airplaneList {
             int n = this->countIndexPlane();
             inp << n << "\n";
             for (int i = 0; i <= n - 1; i++) {
-                std::string JSON = stringtifyJSON_Plane(this->data[i]->idPlane, this->data[i]->typePlane, this->data[i]->rowNumber, this->data[i]->colNumber);
+                std::string JSON = NS_myLib::stringtifyJSON_Plane(this->data[i]->idPlane, this->data[i]->typePlane, this->data[i]->rowNumber, this->data[i]->colNumber);
                 inp << JSON << "\n";
             }
             inp.close();
