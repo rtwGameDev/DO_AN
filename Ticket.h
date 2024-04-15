@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include "MyLib.h"
+#include "myLib.h"
 using namespace std;
-using namespace NS_MyLib;
+using namespace NS_myLib;
 namespace NS_Ticket {
 	void ParseDataTicket(string& SCMND, string& TICKET_CODE, string JSON) {
 		SCMND = "";

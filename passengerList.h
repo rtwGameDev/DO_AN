@@ -257,6 +257,30 @@ class Passenger_list {
 		}
 
 		// Show....
+		void show(nodeAVLPassenger *root) {
+			nodeAVLPassenger *tmp;
+			while (root) {
+				if (root->left == nullptr) {
+					root->info.prInfo();
+					root = root->right;
+				}
+				else {
+					tmp = root->left;
+					while (root->right && root->right != root) {
+						tmp = tmp->right;
+					}
+					if (tmp->right == nullptr) {
+						tmp->right = root;
+						root = root->left;
+					}
+					else {
+						tmp->right = nullptr;
+						root->info.prInfo();
+						root = root->right;
+					}
+				}
+			}
+		}
 		
 	public:
 		int getNumberOfPassenger() {
@@ -315,6 +339,7 @@ class Passenger_list {
 			if (root != nullptr) {
 				deleteAll(root->left);
 				deleteAll(root->right);
+				delete root;
 			}
 		}
 };
