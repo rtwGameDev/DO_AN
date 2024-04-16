@@ -126,7 +126,34 @@ class airplaneList {
 	        for (int i = 0; i <= this->index; i++)
 		    delete this->data[i];
         }
-
+        
+        // swap data
+        void swap_airplane(airplane *&a, airplane *&b) {
+            airplane *tmp = a;
+            a = b;
+            b = tmp;
+        }
+        // Sort
+        void planeList_sort_planeCode ()
+        {
+            for (int i = 0; i <= this->index - 1; ++i) {
+                for (int j = i + 1; j <= this->index; ++j) {
+                    if (this->data[i]->idPlane > this->data[j]->idPlane) {
+                        swap_airplane(this->data[i], this->data[j]);
+                    }
+                }
+            }
+        }
+        void planeList_sort_typePlane ()
+        {
+            for (int i = 0; i <= this->index - 1; ++i) {
+                for (int j = i + 1; j <= this->index; ++j) {
+                    if (this->data[i]->typePlane > this->data[j]->typePlane) {
+                        swap_airplane(this->data[i], this->data[j]);
+                    }
+                }
+            }
+        }
         // Destructor
         ~airplaneList(){};
 };
