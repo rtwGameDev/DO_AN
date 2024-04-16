@@ -286,44 +286,65 @@ class Passenger_list {
 		int getNumberOfPassenger() {
 			return this->numberOfPassenger;
 		}
+
 		void show() {
-			if (root == nullptr) return;
-			NodeHK** STACK = new NodeHK * [number_of_HK];
+			if (this->root == nullptr) return;
+			nodeAVLPassenger **STACK = new nodeAVLPassenger * [this->numberOfPassenger];
 			int index = -1;
-			NodeHK* curr = root;
-			while (index != -1 || curr != nullptr) {
-				while (curr != nullptr) {
-					STACK[++index] = curr;
-					curr = curr->nodeLeft;
+			nodeAVLPassenger *cur = this->root;
+			while (index != -1 || cur != nullptr) {
+				while (cur != nullptr) {
+					STACK[++index] = cur;
+					cur = cur->left;
 				}
-				curr = STACK[index];
-				// xu ly node
+
+				cur = STACK[index];
+				cur->info.prInfo();
 				
-				//
-				--index;
-				curr = curr->nodeRight;
+				index--;
+				cur = cur->right;
 			}
 		}
-		void takeDataOfPassengerList(NodeHK** &arr, int& num) {
-			arr = new NodeHK * [number_of_HK];
-			int i = -1;
-			num = number_of_HK;
-			NodeHK** STACK = new NodeHK * [number_of_HK];
+
+		void takeDataOfPassengerList (nodeAVLPassenger** &arr, int &num) {
+			arr = new nodeAVLPassenger * [this->numberOfPassenger];
+			int i = - 1;
+			num = this->numberOfPassenger;
+			nodeAVLPassenger** STACK = new nodeAVLPassenger * [this->numberOfPassenger];
 			int index = -1;
-			NodeHK* curr = root;
-			while (index != -1 || curr != nullptr) {
-				while (curr != nullptr) {
-					STACK[++index] = curr;
-					curr = curr->nodeLeft;
+			nodeAVLPassenger *cur = this->root;
+			while (index != -1 || cur != nullptr) {
+				while (cur != nullptr) {
+					STACK[++index] = cur;
+					cur = cur->left;
 				}
-				curr = STACK[index];
-				//
-				arr[++i] = curr;
-				//
-				--index;
-				curr = curr->nodeRight;
+
+				cur = STACK[index];
+				arr[++i] = cur;
+				index--;
+				cur = cur -> right;
 			}
 		}
+		// void takeDataOfPassengerList(NodeHK** &arr, int& num) {
+		// 	arr = new NodeHK * [number_of_HK];
+		// 	int i = -1;
+		// 	num = number_of_HK;
+		// 	NodeHK** STACK = new NodeHK * [number_of_HK];
+		// 	int index = -1;
+		// 	NodeHK* curr = root;
+		// 	while (index != -1 || curr != nullptr) {
+		// 		while (curr != nullptr) {
+		// 			STACK[++index] = curr;
+		// 			curr = curr->nodeLeft;
+		// 		}
+		// 		curr = STACK[index];
+		// 		//
+		// 		arr[++i] = curr;
+		// 		//
+		// 		--index;
+		// 		curr = curr->nodeRight;
+		// 	}
+		// }
 		bool isEmpty() {
 			if (this->root == nullptr) return true;
 			return false;
