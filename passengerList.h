@@ -255,32 +255,6 @@ class Passenger_list {
 			if (head->info.idCard < idCard) exist (idCard, head->right, temp);
 			else exist(idCard, head->left, temp);
 		}
-
-		// Show....
-		// void show(nodeAVLPassenger *root) {
-		// 	nodeAVLPassenger *tmp;
-		// 	while (root) {
-		// 		if (root->left == nullptr) {
-		// 			root->info.prInfo();
-		// 			root = root->right;
-		// 		}
-		// 		else {
-		// 			tmp = root->left;
-		// 			while (root->right && root->right != root) {
-		// 				tmp = tmp->right;
-		// 			}
-		// 			if (tmp->right == nullptr) {
-		// 				tmp->right = root;
-		// 				root = root->left;
-		// 			}
-		// 			else {
-		// 				tmp->right = nullptr;
-		// 				root->info.prInfo();
-		// 				root = root->right;
-		// 			}
-		// 		}
-		// 	}
-		// }
 		
 	public:
 		int getNumberOfPassenger() {
@@ -325,26 +299,7 @@ class Passenger_list {
 				cur = cur -> right;
 			}
 		}
-		// void takeDataOfPassengerList(NodeHK** &arr, int& num) {
-		// 	arr = new NodeHK * [number_of_HK];
-		// 	int i = -1;
-		// 	num = number_of_HK;
-		// 	NodeHK** STACK = new NodeHK * [number_of_HK];
-		// 	int index = -1;
-		// 	NodeHK* curr = root;
-		// 	while (index != -1 || curr != nullptr) {
-		// 		while (curr != nullptr) {
-		// 			STACK[++index] = curr;
-		// 			curr = curr->nodeLeft;
-		// 		}
-		// 		curr = STACK[index];
-		// 		//
-		// 		arr[++i] = curr;
-		// 		//
-		// 		--index;
-		// 		curr = curr->nodeRight;
-		// 	}
-		// }
+		
 		bool isEmpty() {
 			if (this->root == nullptr) return true;
 			return false;
